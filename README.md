@@ -70,7 +70,7 @@ UML_Diagram.png (or UML_Diagram.pdf)
 **Source / Link:**  
 
 **What this dataset contains (2–3 sentences):**  
-____________________________________________________________________  
+__This dataset contains data from the World Data spreadsheet. The data includes specific information like mobile data usage, population, and location of more than 2000 countries. __________________________________________________________________  
 ____________________________________________________________________  
 
 ---
@@ -80,7 +80,7 @@ ____________________________________________________________________
 Your guiding question should be something you can answer using your dataset.
 
 **My guiding question:**  
-____________________________________________________________________  
+__Is mobile data usage greater in the Eastern or Western Hemisphere?__________________________________________________________________  
 ____________________________________________________________________  
 
 Examples:
@@ -145,8 +145,8 @@ You must write **at least two algorithms** to analyze your dataset.
 
 **Algorithms I will implement:**
 
-1. __________________________________________  
-2. __________________________________________  
+1. ___Average of attribute_______________________________________  
+2. ___Filter by category_______________________________________  
 
 Optional extras:  
 - Sorting  
