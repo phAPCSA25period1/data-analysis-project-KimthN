@@ -26,8 +26,9 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
 
-        File file = new File("https://runestone.academy/ns/books/published/csawesome2/external/_static/datasets/WorldIndicators2000.csv");
+        File file = new File("WorldIndicators2000.csv");
         String[] all_lines = new String[2705];
+        System.out.println("test");
         //public String[] readFile(){
             //File myFile = new File(file);
             Scanner scan = new Scanner(file);
@@ -38,21 +39,7 @@ public class Main {
                 i++;
             }
             scan.close();
-
-        
-       
-        //URL url = new URI("https://runestone.academy/ns/books/published/csawesome2/external/_static/datasets/WorldIndicators2000.csv").toURL();
-        //String[] all_lines = new String[2705];
-            //Scanner scan = new Scanner(url.openStream());
-            //int i = 0;
-            //while (scan.hasNextLine() && i < all_lines.length){
-                //String[] all_lines;
-                //all_lines[i] = scan.nextLine();
-                //i++;
-            //}
-            //scan.close();
-            //System.out.println("Number of rows loaded: " + i);
-
+//each continent gets 10 random countries
         // getting 10 countries in Americas, int[] Americas has 10 america countries indexes
         int[] Americas = new int[10];
         int countA = 0;
@@ -193,6 +180,7 @@ public class Main {
                     Countries[k] = s;
                 }
             }
+        }
             //now countries has 60 country objects with name, region, and mobile usage
             //need to find average mobile usage for each continent and then compare them to answer the question
             int Americas_mobile_usage = 0;
@@ -241,53 +229,5 @@ public class Main {
             for (int m = 0; m < 60; m++){
                 System.out.println(Countries[m].toString());
             }
-
-
-
-        //Scanner scan = new Scanner(file);
-        //The Americas, Oceania, Middle East, Europe, Asia, Africa
-        //random number generator, put that number into no_repeats, take it's continent, if then add to int, while all continents are 10 or less
-        //random number generator for 60 values, take continent if still valid then put in, count as one and put in no repeats
-        //read all lines into array and don't get attributes, then do random of that array then do attributes
-        //all_lines array for each elements is a line, random number/index, split element, get first index, check if in no_repeats, if not then do object, if is then pick another random, check
-        //while in repeats
-        //not name but index random
-
-
-        //for (int i = 0; i < 60; i++){
-            //int random = (int)(Math.random()*(2705-1+1)+1);
-
-        }
-
-
-
-
-        
-
-
-        
-        // - Skip header if needed
-        // - Loop through rows
-        // - Split each line by commas
-        // - Convert text to numbers when needed
-        // - Create new Data objects
-        // - Add to your array
-
-
-        
-        // Example:
-        // double maxValue = findMaxValue(dataList);
-        // double average = computeAverageValue(dataList);
-
-
-       
-        // - Number of rows loaded
-        // - Min, max, average, or any other findings
-        // - Final answer to your guiding question
-
-
-       
-        // Add user interaction:
-        // Ask the user what kind of analysis they want to see
     }
-}   
+}
