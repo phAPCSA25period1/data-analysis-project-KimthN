@@ -28,7 +28,7 @@ public class Main {
 
         File file = new File("WorldIndicators2000.csv");
         String[] all_lines = new String[2705];
-        System.out.println("test");
+        //System.out.println("test");
         //public String[] readFile(){
             //File myFile = new File(file);
             Scanner scan = new Scanner(file);
@@ -38,25 +38,29 @@ public class Main {
                 all_lines[i] = scan.nextLine();
                 i++;
             }
+            System.out.println("test");
             scan.close();
 //each continent gets 10 random countries
         // getting 10 countries in Americas, int[] Americas has 10 america countries indexes
         int[] Americas = new int[10];
         int countA = 0;
         while (countA < 10){
-            int randomm = (int)(Math.random()*(2704-1+1)+1);
+            int randomm = (int)(Math.random()*(2704-0+1)+0);
             String data1[] = all_lines[randomm].split(",");
             String name = data1[24];
-            if (name.equals("Americas")){
+            if (name.equals("The Americas")){
                 Americas[countA] = randomm;
                 countA++;
             }
+        }
+        for (int x:Americas){
+            System.out.println(x);
         }
 
         int[] Oceania = new int[10];
         int countO = 0;
         while (countO < 10){
-            int randomm = (int)(Math.random()*(2705-1+1)+1);
+            int randomm = (int)(Math.random()*(2704-1+1)+1);
             String data1[] = all_lines[randomm].split(",");
             String name = data1[24];
             if (name.equals("Oceania")){
@@ -68,7 +72,7 @@ public class Main {
         int[] Middle_East = new int[10];
         int countME = 0;
         while (countME < 10){
-            int randomm = (int)(Math.random()*(2705-1+1)+1);
+            int randomm = (int)(Math.random()*(2704-1+1)+1);
             String data1[] = all_lines[randomm].split(",");
             String name = data1[24];
             if (name.equals("Middle East")){
@@ -81,7 +85,7 @@ public class Main {
         int[] Europe = new int[10];
         int countE = 0;
         while (countE < 10){
-            int randomm = (int)(Math.random()*(2705-1+1)+1);
+            int randomm = (int)(Math.random()*(2704-1+1)+1);
             String data1[] = all_lines[randomm].split(",");
             String name = data1[24];
             if (name.equals("Europe")){
@@ -93,11 +97,11 @@ public class Main {
         int[] Asia = new int[10];
         int countAS = 0;
         while (countAS < 10){
-            int randomm = (int)(Math.random()*(2705-1+1)+1);
+            int randomm = (int)(Math.random()*(2704-1+1)+1);
             String data1[] = all_lines[randomm].split(",");
             String name = data1[24];
             if (name.equals("Asia")){
-                Asia[countO] = randomm;
+                Asia[countAS] = randomm;
                 countAS++;
             }
         }
@@ -109,7 +113,7 @@ public class Main {
             String data1[] = all_lines[randomm].split(",");
             String name = data1[24];
             if (name.equals("Africa")){
-                Africa[countO] = randomm;
+                Africa[countAF] = randomm;
                 countAF++;
             }
         }
@@ -123,7 +127,7 @@ public class Main {
                     String[] data = all_lines[blah].split(",");
                     String a = data[0];
                     String b = data[24];
-                    double c = Integer.parseInt(data[17]);
+                    double c = safeParseDouble(data[17]);
                     CountryStat s = new CountryStat(a, b, c);
                     Countries[k] = s;
                 }
@@ -133,7 +137,7 @@ public class Main {
                     String[] data = all_lines[blah].split(",");
                     String a = data[0];
                     String b = data[24];
-                    double c = Integer.parseInt(data[17]);
+                    double c = safeParseDouble(data[17]);
                     CountryStat s = new CountryStat(a, b, c);
                     Countries[k] = s;
                 }
@@ -143,7 +147,7 @@ public class Main {
                     String[] data = all_lines[blah].split(",");
                     String a = data[0];
                     String b = data[24];
-                    double c = Integer.parseInt(data[17]);
+                    double c = safeParseDouble(data[17]);
                     CountryStat s = new CountryStat(a, b, c);
                     Countries[k] = s;
                 }
@@ -153,7 +157,7 @@ public class Main {
                     String[] data = all_lines[blah].split(",");
                     String a = data[0];
                     String b = data[24];
-                    double c = Integer.parseInt(data[17]);
+                    double c = safeParseDouble(data[17]);
                     CountryStat s = new CountryStat(a, b, c);
                     Countries[k] = s;
                 }
@@ -164,7 +168,7 @@ public class Main {
                     String[] data = all_lines[blah].split(",");
                     String a = data[0];
                     String b = data[24];
-                    double c = Integer.parseInt(data[17]);
+                    double c = safeParseDouble(data[17]);
                     CountryStat s = new CountryStat(a, b, c);
                     Countries[k] = s;
                 }
@@ -175,7 +179,7 @@ public class Main {
                     String[] data = all_lines[blah].split(",");
                     String a = data[0];
                     String b = data[24];
-                    double c = Integer.parseInt(data[17]);
+                    double c = safeParseDouble(data[17]);
                     CountryStat s = new CountryStat(a, b, c);
                     Countries[k] = s;
                 }
@@ -229,5 +233,16 @@ public class Main {
             for (int m = 0; m < 60; m++){
                 System.out.println(Countries[m].toString());
             }
+    }
+
+    private static double safeParseDouble(String value) {
+        if (value == null || value.isBlank()) {
+            return 0.0;
+        }
+        try {
+            return Double.parseDouble(value.trim());
+        } catch (NumberFormatException e) {
+            return 0.0;
+        }
     }
 }
