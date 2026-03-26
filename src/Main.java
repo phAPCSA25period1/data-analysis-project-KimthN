@@ -69,6 +69,15 @@ public class Main {
             System.out.println(Americans[j].toString());
         }
 
+        double Americas_mobile_usage = 0.0;
+            for (int j = 0; j <=9; j++){
+                Americas_mobile_usage += Americans[j].getMobile_usage();
+            }
+            Americas_mobile_usage /= 10.0; //western hemisphere average mobile usage
+            System.out.println("Western Hemisphere Average Mobile Usage: " + Americas_mobile_usage);
+
+
+
         int[] Oceania = new int[10];
         int countO = 0;
         while (countO < 10){
@@ -80,6 +89,25 @@ public class Main {
                 countO++;
             }
         }
+
+        CountryStat[] Oceania_countries = new CountryStat[10];
+        for (int j = 0; j <= 9; j++){
+            int blah = Oceania[j];
+            String[] data = all_lines[blah].split(",");
+            String a = data[0];
+            String b = data[24];
+            double c = safeParseDouble(data[17]);
+            CountryStat s = new CountryStat(a, b, c);
+            Oceania_countries[j] = s;
+            System.out.println(Oceania_countries[j].toString());
+        }
+
+        double Oceania_mobile_usage = 0.0;
+        for (int j = 0; j <=9; j++){
+            Oceania_mobile_usage += Oceania_countries[j].getMobile_usage();
+        }
+        Oceania_mobile_usage /= 10.0; //oceania average mobile usage
+        System.out.println("Oceania Average Mobile Usage: " + Oceania_mobile_usage);
 
         int[] Middle_East = new int[10];
         int countME = 0;
@@ -201,17 +229,6 @@ public class Main {
         }
             //now countries has 60 country objects with name, region, and mobile usage
             //need to find average mobile usage for each continent and then compare them to answer the question
-            int Americas_mobile_usage = 0;
-            for (int j = 0; j <=9; j++){
-                Americas_mobile_usage += Countries[j].getMobile_usage();
-            }
-            Americas_mobile_usage /= 10; //western hemisphere average mobile usage
-
-            int Oceania_mobile_usage = 0;
-            for (int j = 10; j <=19; j++){
-                Oceania_mobile_usage += Countries[j].getMobile_usage();
-            }
-            Oceania_mobile_usage /= 10; //Oceania average mobile usage 
 
             int Middle_East_mobile_usage = 0;
             for (int j = 20; j <=29; j++){
@@ -237,9 +254,9 @@ public class Main {
             }
             Africa_mobile_usage /= 10; //Africa average mobile usage    
 
-            int eastern_hemisphere_mobile_usage = Oceania_mobile_usage + Middle_East_mobile_usage + Europe_mobile_usage + Asia_mobile_usage + Africa_mobile_usage;
-            eastern_hemisphere_mobile_usage /= 5;
-            int western_hemisphere_mobile_usage = Americas_mobile_usage;
+            double eastern_hemisphere_mobile_usage = Oceania_mobile_usage + Middle_East_mobile_usage + Europe_mobile_usage + Asia_mobile_usage + Africa_mobile_usage;
+            eastern_hemisphere_mobile_usage /= 5.0;
+            double western_hemisphere_mobile_usage = Americas_mobile_usage;
 
             System.out.println("Eastern Hemisphere Average Mobile Usage: " + eastern_hemisphere_mobile_usage);
             System.out.println("Western Hemisphere Average Mobile Usage: " + western_hemisphere_mobile_usage);
