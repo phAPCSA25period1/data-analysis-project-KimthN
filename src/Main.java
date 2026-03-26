@@ -243,6 +243,14 @@ public class Main {
             System.out.println("Eastern Hemisphere Average Mobile Usage: " + eastern_hemisphere_mobile_usage);
             System.out.println("Western Hemisphere Average Mobile Usage: " + western_hemisphere_mobile_usage);
 
+            if (eastern_hemisphere_mobile_usage > western_hemisphere_mobile_usage){
+                System.out.println("The Eastern Hemisphere has a higher average mobile usage than the Western Hemisphere.");
+            } else if (western_hemisphere_mobile_usage > eastern_hemisphere_mobile_usage){
+                System.out.println("The Western Hemisphere has a higher average mobile usage than the Eastern Hemisphere.");
+            } else {
+                System.out.println("The Eastern and Western Hemispheres have the same average mobile usage.");
+            }
+
     }
 
     private static double safeParseDouble(String value) {

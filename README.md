@@ -165,12 +165,12 @@ After analyzing your objects, print:
 - ✔ A clear answer to your guiding question  
 
 **My findings:**  
-____________________________________________________________________  
+__The Eastern hemisphere usually has a higher average mobile usage. However, the average mobile usage between the eastern and western hemispheres tend to be close and not very different. __________________________________________________________________  
 ____________________________________________________________________  
 ____________________________________________________________________  
 
 **My answer to the guiding question:**  
-____________________________________________________________________  
+___Overall, the Eastern Hemisphere usually has a higher average mobile usage than the Western Hemisphere._________________________________________________________________  
 ____________________________________________________________________  
 
 ---
