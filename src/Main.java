@@ -57,6 +57,18 @@ public class Main {
             System.out.println(x);
         }
 
+        CountryStat[] Americans = new CountryStat[10];
+        for (int j = 0; j <= 9; j++){
+            int blah = Americas[j];
+            String[] data = all_lines[blah].split(",");
+            String a = data[0];
+            String b = data[24];
+            double c = safeParseDouble(data[17]);
+            CountryStat s = new CountryStat(a, b, c);
+            Americans[j] = s;
+            System.out.println(Americans[j].toString());
+        }
+
         int[] Oceania = new int[10];
         int countO = 0;
         while (countO < 10){
@@ -120,26 +132,28 @@ public class Main {
 
         //making america country objects
         CountryStat[] Countries = new CountryStat[60];
+
         for (int k = 0; k < 60; k++){
             //String a = all_lines[Americas[k]];
-            if (k >= 0 && k <= 9){
+            for (int j = 0; j <= 9; j++){
                 for (int blah:Americas){
                     String[] data = all_lines[blah].split(",");
                     String a = data[0];
                     String b = data[24];
                     double c = safeParseDouble(data[17]);
                     CountryStat s = new CountryStat(a, b, c);
-                    Countries[k] = s;
+                    Countries[j] = s;
                 }
+                //System.out.println(Countries[j].toString());
             }
-            if (k >= 10 && k <= 19){
+            for (int h = 10; h <= 19; h++){
                 for (int blah:Oceania){
                     String[] data = all_lines[blah].split(",");
                     String a = data[0];
                     String b = data[24];
                     double c = safeParseDouble(data[17]);
                     CountryStat s = new CountryStat(a, b, c);
-                    Countries[k] = s;
+                    Countries[h] = s;
                 }
             }
             if (k >= 20 && k <= 29){
