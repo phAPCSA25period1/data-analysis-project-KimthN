@@ -53,9 +53,6 @@ public class Main {
                 countA++;
             }
         }
-        for (int x:Americas){
-            System.out.println(x);
-        }
 
         CountryStat[] Americans = new CountryStat[10];
         for (int j = 0; j <= 9; j++){
@@ -121,6 +118,24 @@ public class Main {
             }
         }
 
+        CountryStat[] MiddleEast_countries = new CountryStat[10];
+        for (int j = 0; j <= 9; j++){
+            int blah = Middle_East[j];
+            String[] data = all_lines[blah].split(",");
+            String a = data[0];
+            String b = data[24];
+            double c = safeParseDouble(data[17]);
+            CountryStat s = new CountryStat(a, b, c);
+            MiddleEast_countries[j] = s;
+            System.out.println(MiddleEast_countries[j].toString());
+        }
+
+        double Middle_East_mobile_usage = 0.0;
+        for (int j = 0; j <=9; j++){
+            Middle_East_mobile_usage += MiddleEast_countries[j].getMobile_usage();
+        }
+        Middle_East_mobile_usage /= 10.0; //middle east average mobile usage
+        System.out.println("Middle East Average Mobile Usage: " + Middle_East_mobile_usage);
 
         int[] Europe = new int[10];
         int countE = 0;
@@ -134,6 +149,26 @@ public class Main {
             }
         }
 
+        CountryStat[] Europe_countries = new CountryStat[10];
+        for (int j = 0; j <= 9; j++){
+            int blah = Europe[j];
+            String[] data = all_lines[blah].split(",");
+            String a = data[0];
+            String b = data[24];
+            double c = safeParseDouble(data[17]);
+            CountryStat s = new CountryStat(a, b, c);
+            Europe_countries[j] = s;
+            System.out.println(Europe_countries[j].toString());
+        }
+
+        double Europe_mobile_usage = 0.0;
+        for (int j = 0; j <=9; j++){
+            Europe_mobile_usage += Europe_countries[j].getMobile_usage();
+        }
+        Europe_mobile_usage /= 10.0; //europe average mobile usage
+        System.out.println("Europe Average Mobile Usage: " + Europe_mobile_usage);
+
+
         int[] Asia = new int[10];
         int countAS = 0;
         while (countAS < 10){
@@ -145,6 +180,25 @@ public class Main {
                 countAS++;
             }
         }
+
+        CountryStat[] Asia_countries = new CountryStat[10];
+        for (int j = 0; j <= 9; j++){
+            int blah = Asia[j];
+            String[] data = all_lines[blah].split(",");
+            String a = data[0];
+            String b = data[24];
+            double c = safeParseDouble(data[17]);
+            CountryStat s = new CountryStat(a, b, c);
+            Asia_countries[j] = s;
+            System.out.println(Asia_countries[j].toString());
+        }
+
+        double Asia_mobile_usage = 0.0;
+        for (int j = 0; j <=9; j++){
+            Asia_mobile_usage += Asia_countries[j].getMobile_usage();
+        }
+        Asia_mobile_usage /= 10.0; //asia average mobile usage
+        System.out.println("Asia Average Mobile Usage: " + Asia_mobile_usage);
 
         int[] Africa = new int[10];
         int countAF = 0;
@@ -158,101 +212,29 @@ public class Main {
             }
         }
 
-        //making america country objects
-        CountryStat[] Countries = new CountryStat[60];
+        CountryStat[] Africa_countries = new CountryStat[10];
+        for (int j = 0; j <= 9; j++){
+            int blah = Africa[j];
+            String[] data = all_lines[blah].split(",");
+            String a = data[0];
+            String b = data[24];
+            double c = safeParseDouble(data[17]);
+            CountryStat s = new CountryStat(a, b, c);
+            Africa_countries[j] = s;
+            System.out.println(Africa_countries[j].toString());
+        } 
 
-        for (int k = 0; k < 60; k++){
-            //String a = all_lines[Americas[k]];
-            for (int j = 0; j <= 9; j++){
-                for (int blah:Americas){
-                    String[] data = all_lines[blah].split(",");
-                    String a = data[0];
-                    String b = data[24];
-                    double c = safeParseDouble(data[17]);
-                    CountryStat s = new CountryStat(a, b, c);
-                    Countries[j] = s;
-                }
-                //System.out.println(Countries[j].toString());
-            }
-            for (int h = 10; h <= 19; h++){
-                for (int blah:Oceania){
-                    String[] data = all_lines[blah].split(",");
-                    String a = data[0];
-                    String b = data[24];
-                    double c = safeParseDouble(data[17]);
-                    CountryStat s = new CountryStat(a, b, c);
-                    Countries[h] = s;
-                }
-            }
-            if (k >= 20 && k <= 29){
-                for (int blah:Middle_East){
-                    String[] data = all_lines[blah].split(",");
-                    String a = data[0];
-                    String b = data[24];
-                    double c = safeParseDouble(data[17]);
-                    CountryStat s = new CountryStat(a, b, c);
-                    Countries[k] = s;
-                }
-            }
-            if (k >= 30 && k <= 39){
-                for (int blah:Europe){
-                    String[] data = all_lines[blah].split(",");
-                    String a = data[0];
-                    String b = data[24];
-                    double c = safeParseDouble(data[17]);
-                    CountryStat s = new CountryStat(a, b, c);
-                    Countries[k] = s;
-                }
-            }
-
-            if (k >= 40 && k <= 49){
-                for (int blah:Asia){
-                    String[] data = all_lines[blah].split(",");
-                    String a = data[0];
-                    String b = data[24];
-                    double c = safeParseDouble(data[17]);
-                    CountryStat s = new CountryStat(a, b, c);
-                    Countries[k] = s;
-                }
-            }
-
-            if (k >= 50 && k <= 59){
-                for (int blah:Africa){
-                    String[] data = all_lines[blah].split(",");
-                    String a = data[0];
-                    String b = data[24];
-                    double c = safeParseDouble(data[17]);
-                    CountryStat s = new CountryStat(a, b, c);
-                    Countries[k] = s;
-                }
-            }
+        double Africa_mobile_usage = 0.0;
+        for (int j = 0; j <=9; j++){
+            Africa_mobile_usage += Africa_countries[j].getMobile_usage();
         }
+        Africa_mobile_usage /= 10.0; //africa average mobile usage
+        System.out.println("Africa Average Mobile Usage: " + Africa_mobile_usage);  
+
+        //making america country objects
+        
             //now countries has 60 country objects with name, region, and mobile usage
-            //need to find average mobile usage for each continent and then compare them to answer the question
-
-            int Middle_East_mobile_usage = 0;
-            for (int j = 20; j <=29; j++){
-                Middle_East_mobile_usage += Countries[j].getMobile_usage();
-            }
-            Middle_East_mobile_usage /= 10; //Middle East average mobile usage
-
-            int Europe_mobile_usage = 0;
-            for (int j = 30; j <=39; j++){
-                Europe_mobile_usage += Countries[j].getMobile_usage();
-            }
-            Europe_mobile_usage /= 10; //Europe average mobile usage    
-
-            int Asia_mobile_usage = 0;
-            for (int j = 40; j <=49; j++){
-                Asia_mobile_usage += Countries[j].getMobile_usage();
-            }
-            Asia_mobile_usage /= 10; //Asia average mobile usage
-
-            int Africa_mobile_usage = 0;
-            for (int j = 50; j <=59; j++){
-                Africa_mobile_usage += Countries[j].getMobile_usage();
-            }
-            Africa_mobile_usage /= 10; //Africa average mobile usage    
+            //need to find average mobile usage for each continent and then compare them to answer the questio  
 
             double eastern_hemisphere_mobile_usage = Oceania_mobile_usage + Middle_East_mobile_usage + Europe_mobile_usage + Asia_mobile_usage + Africa_mobile_usage;
             eastern_hemisphere_mobile_usage /= 5.0;
@@ -261,9 +243,6 @@ public class Main {
             System.out.println("Eastern Hemisphere Average Mobile Usage: " + eastern_hemisphere_mobile_usage);
             System.out.println("Western Hemisphere Average Mobile Usage: " + western_hemisphere_mobile_usage);
 
-            for (int m = 0; m < 60; m++){
-                System.out.println(Countries[m].toString());
-            }
     }
 
     private static double safeParseDouble(String value) {
